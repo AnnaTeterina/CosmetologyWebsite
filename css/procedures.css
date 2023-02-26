@@ -1,0 +1,69 @@
+/* Стили для блоков процедур */
+.procedures__block {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    width: 100%;
+}
+
+/* Стили бля блоков по три процедуры*/
+.procedure__block {
+    background-color: white;
+    width: 400px;
+    height: 555px;
+    display: inline-table;
+    border-radius: 5px;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    padding: 15px 15px 0 15px;
+    font-size: 17px;
+}
+
+/* Высота первых трех блоков */
+.p-block {
+    height: 1050px;
+}
+
+/* Стили для заголовков */
+.procedure__header {
+    font-size: 22px;
+}
+
+/* Стили для заголовков видов массажей, пилингов и масок*/
+.pod-header {
+    font-size: 19px;
+    padding: 0 20px;
+    float: left;
+}
+
+/* Стили для блоков картинок */
+.img__procedure {
+    border-radius: 5px;
+    margin: 15px auto;
+    height: 225px;
+    width: 90%;
+}
+
+/* Адаптация под мобильное устройство */
+@media (max-width: 767px) {
+    .procedures__block {
+        margin: 0 auto;
+    }
+    .procedure__block {
+        width: 340px;
+        font-size: 15px;
+        height: auto;
+    } 
+    .p-block {
+        height: auto;
+    }
+    .procedure__header {
+        font-size: 20px;
+    }
+    .pod-header {
+        font-size: 17px;
+    }
+    .img__procedure {
+        height: 150px;
+    }
+}

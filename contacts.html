@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <meta charset="utf-8"> <!-- Кодировка страницы -->
+        <!-- Поключение стилей -->
+        <link rel="stylesheet" href="css/style.css"> 
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/contacts.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <script src="js/modal.js"></script> <!-- Поключение скрипта модальных окон -->
+        <!-- Поключение шрифта -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+        <!-- Включение поддержки тега meta viewport для адаптиввности сайта -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Контакты</title>
+        <style>
+           
+        </style>
+    </HEAD>
+    <BODY>
+        <!-- "Шапка" страницы -->
+        <header class="second">
+            <!-- Верхний блок с лого и меню -->
+            <div style="display: table; width: 100%;">
+                <!-- Лого -->
+                <div style="display: table-cell;">
+                    <img class="logo" src="img/logo.png"> 
+                </div>
+                <!-- Адаптивное меню -->
+                <div class="hamburger-menu">
+                    <!-- В качестве кнопки для открытия / закрытия меню используем <label> со свойством for. 
+                        При клике на лейбл, будет срабатывать чекбокс -->
+                    <input id="menu__toggle" type="checkbox">
+                    <label class="menu__btn" for="menu__toggle">
+                      <span></span> <!-- "гамургер" -->
+                    </label>
+                    <!-- Список меню с ссылками -->
+                    <ul class="menu__box">
+                      <li><a class="menu__item" href="index.html">ГЛАВНАЯ</a></li>
+                      <li><a class="menu__item js-open-modal" href="#" data-modal="1">ЗАПИСЬ НА СЕАНС</a></li>
+                      <li><a class="menu__item" href="procedures.html">ПРОЦЕДУРЫ</a></li>
+                      <li><a class="menu__item" href="contacts.html">КОНТАКТЫ</a></li>
+                      <li><a class="menu__item js-open-modal" href="№" data-modal="2">О ПРИЛОЖЕНИИ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Блок с контактами и картой -->
+        <div class="contacts">
+            <!-- Блок с контактами, без карты -->
+            <div class="cont">
+                <!-- Заголовок -->
+                <div class="contact">
+                    <span>Контактные данные:</span>
+                </div>
+                <div>
+                    <!-- Номер телефона и электронная почта с икноками -->
+                    <p>
+                        <img style="height:25px" src="img/icons/free-icon-telephone-684911.png">
+                        <span class="tel">+7 (985) 265-26-59</span><br>
+                        <img style="height:25px" src="img/icons/free-icon-arroba-684915.png">
+                        <a href="mailto:lenameef@mail.ru">lenameef@mail.ru</a>
+                    </p>
+                    <!-- Часы работы с иконкой -->
+                    <p>
+                        <img style="height:25px" src="img/icons/free-icon-wall-clock-684902.png">
+                        <span>Пн - Пт 17.00 – 21.00</span><br> 
+                        <span style="padding:29px;">Сб 12.00 – 18.00</span><br> 
+                        <span style="padding:29px;">Вс Выходной</span>
+                    </p>
+                    <!-- Адрес с иконкой -->
+                    <p>
+                        <img style="height:25px" src="img/icons/free-icon-placeholder-684908.png">
+                        <span>г. Ивантеевка, ул. Хлебозаводская, дом 30</span>
+                    </p>
+                </div>
+            </div>
+            <!-- Карта -->
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0f0485a1f6423723551f3ee72d5f12b0fd5915e5fd392dc9e4c022e123034985&amp;source=constructor" width="100%" height="500" frameborder="0" allowfullscreen="true"></iframe>
+        </div>             
+
+        <!-- Первое модальное окно -->
+        <div class="modal" id="form-modal" data-modal="1">
+            <div class="modal__header">
+                <!-- Svg иконка для закрытия окна  -->
+                <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+                <label class="modal-text-header">Заявка на сеанс</label>
+            </div>
+            <!-- Форма -->
+            <!--отключаем событие отправки формы по умолчанию, если бы была серверная часть и нужно было бы отправлять данные, то можно было бы написать ajax запрос-->
+            <form method="POST" onsubmit="return false;">
+                <!-- Три текстовых поля, одно поле с типом email и третье поле с типом tel, при вводе с телефона будут отоббражаться соответсвующие клавиатуры -->
+                <div class="modal-field">
+                    <input type="text" name="name" id="name" placeholder="Введите Ваше имя*" required>
+                </div>
+                <div class="modal-field">
+                    <input type="email" name="email" placeholder="Введите Ваш email">
+                </div>
+                <div class="modal-field">
+                    <input type="tel" name="phone" id="phone" placeholder="Введите Ваш номер телефона*" required>
+                </div>
+                <!-- Шесть флажков -->
+                <div class="modal-checkbox">
+                    <div>
+                        <label>Выберите процедуру:</label><br>
+                        <input class="check-modal" type="checkbox" name="massege" value="Массаж лица" id="massege" onclick="toggle()">
+                        <label for="massege">Массаж лица</label>
+                        <!-- Три первых переключателя -->
+                        <div class="massege-block" id="massege-block">
+                            <div>
+                                <input class="check-modal check-massege" type="radio" name="check_massage" value="Испанский миоструктурный" id="spanish">
+                                <label for="spanish">Испанский миоструктурный массаж лица</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-massege" type="radio" name="check_massage" value="Классический" id="classic">
+                                <label for="classic">Классический массаж лица</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-massege" type="radio" name="check_massage" value="Баночный" id="banoch">
+                                <label for="banoch">Баночный массаж лица</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="check-modal" type="checkbox" name="peeling" value="Пилинг" id="peeling" onclick="toggle()">
+                        <label for="peeling">Пилинг</label>
+                        <!-- Четыре перключателя -->
+                        <div class="peeling-block" id="peeling-block">
+                            <div>
+                                <input class="check-modal check-peeling" type="radio" name="check_peeling" value="Азелаиновый" id="azelain">
+                                <label for="azelain">Азелаиновый пилинг</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-peeling" type="radio" name="check_peeling" value="Салициловый" id="saliz">
+                                <label for="saliz">Салициловый пилинг</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-peeling" type="radio" name="check_peeling" value="ProBio" id="probio">
+                                <label for="probio">ProBio пилинг</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-peeling" type="radio" name="check_peeling" value="PRC" id="PRC">
+                                <label for="PRC">PRC пилинг</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="check-modal" type="checkbox" name="mask" value="Маска" id="mask" onclick="toggle()">
+                        <label for="mask">Маска</label>
+                        <!-- Три последних переключателя -->
+                        <div class="mask-block" id="mask-block">
+                            <div>
+                                <input class="check-modal check-mask" type="radio" name="check_mask" value="Альгинатная" id="alginat">
+                                <label for="alginat">Альгинатная маска</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-mask" type="radio" name="check_mask" value="Кремовая" id="cream">
+                                <label for="cream">Кремовая маска</label>
+                            </div>
+                            <div>
+                                <input class="check-modal check-mask" type="radio" name="check_mask" value="Пластифицирующая" id="plastic">
+                                <label for="plastic">Пластифицирующая маска</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <input class="check-modal" type="checkbox" name="parafango" value="Парафанго" id="parafango">
+                        <label for="parafango">Парафанго</label>
+                    </div>
+                    <div>
+                        <input class="check-modal" type="checkbox" name="UC" value="УЗ-чистка" id="UC">
+                        <label for="UC">УЗ-чистка</label>
+                    </div>
+                    <div>
+                        <input class="check-modal" type="checkbox" name="ionophorez" value="Ионофорез" id="ionophorez">
+                        <label for="ionophorez">Ионофорез</label>
+                    </div>
+                </div>
+                <!-- Кнопка по нажатию на которую первое модальное окно закрывается и открывается третье-->
+                <div class="modal-field sub">
+                    <input type="submit" class="modal-submit js-modal-form" data-modal="3" id="modal-btn" value="Отправить">
+                </div>
+            </form>
+         </div>
+         
+         <!-- Второе модальное окно -->
+         <div class="modal m-2" data-modal="2">
+            <!--   Svg иконка для закрытия окна  -->
+            <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+            <p>Версия сайта: 1.0.1000</p>
+            <p>Сайт написан на: HTML, CSS, JS и PHP</p>
+            <p>Сайт разработан: Тетериной А.С.</p>
+         </div>
+
+          <!-- Третье модальное окно -->
+         <div class="modal" data-modal="3" id="modal-after-form">
+            <!--   Svg иконка для закрытия окна  -->
+            <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+            <p style="font-size: 18px;">Отправка заявки прошла успешна</p>
+            <p  style="font-size: 18px;">Скоро с Вами свяжутся</p>
+         </div>
+         
+         <!-- Подложка под модальным окном -->
+        <div class="overlay" id="overlay-modal"></div>
+
+        <!-- "Подвал" страницы -->
+        <footer>
+            <!-- Контактные данные -->
+            <div class="cont">
+                <!-- Заголовок -->
+                <div class="contact">
+                    <span>Связь со мной:</span>
+                </div>
+                <!-- Контакты -->
+                <div>
+                    <img style="height:17px" src="img/icons/free-icon-telephone-684911.png">
+                    <span class="tel">+7 (985) 265-26-59</span><br>
+                    <img style="height:17px" src="img/icons/free-icon-arroba-684915.png">
+                    <a href="mailto:lenameef@mail.ru">lenameef@mail.ru</a><br>
+                </div>
+            </div>
+            <div class="cont">
+                <!-- Заголовок -->
+                <div class="contact">
+                    <span>Мессенджеры:</span>
+                </div>
+                <!-- Контакты -->
+                <div>
+                    <img style="height:19px" src="img/icons/whatsapp.png">
+                    <span class="tel">+7 (925) 358-38-20</span><br>
+                    <img style="height:19px" src="img/icons/viber.png">
+                    <span class="tel">+7 (925) 358-38-20</span><br>
+                </div>
+            </div>
+            <div class="cont">
+                <!-- Заголовок -->
+                <div class="contact">
+                    <span>Социальные сети:</span>
+                </div>
+                <!-- Контакты -->
+                <div>
+                    <a href="https://www.instagram.com/lenameef/"><img style="height:30px" src="img/icons/instagram.png" title="Instagram"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100009643726622"><img style="height:30px" src="img/icons/facebook.png" title="Facebook"></a>
+                </div>
+            </div>
+        </footer>
+
+    </BODY>
+</HTML>

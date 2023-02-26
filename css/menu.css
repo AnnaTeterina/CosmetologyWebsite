@@ -1,0 +1,103 @@
+/* скрываем чекбокс */
+#menu__toggle {
+    display: none;
+    opacity: 0;
+}
+
+/* стилизуем кнопку */
+.menu__btn {
+    display: none; 
+    align-items: center;  /* центрируем содержимое кнопки */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* добавляем "гамбургер" */
+.menu__btn span, .menu__btn span::before, .menu__btn span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transition-duration: .25s;
+}
+.menu__btn span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn span::after {
+  content: '';
+  top: 8px;
+}
+
+/* контейнер меню */
+.menu__box {
+    display: table-cell;
+    float: right;
+    vertical-align: middle;
+    padding-right: 70px;
+    padding-top: 4px;
+}
+  
+/* элементы меню, делаем из "гамбургера" крестик */
+#menu__toggle:checked ~ .menu__btn span {
+    transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn span::before {
+    top: 0;
+}
+#menu__toggle:checked ~ .menu__btn span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+/* выплывание мню сверху */
+#menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    top: 0;
+}
+
+/* стили элементов списка */
+.menu__box li {
+    list-style-type: none;
+    display: inline;
+    margin: 5px;
+}
+
+/* стили ссылок */ 
+.menu__item {
+    color: rgb(252, 252, 252);
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Адаптация под мобильное устройство */ 
+@media (max-width: 767px) {
+    #menu__toggle {
+        display: block;
+    }
+    .menu__btn {
+        display: flex; /* используем flex для центрирования содержимого */
+    }
+    .menu__box {
+        position: absolute;
+        visibility: hidden;
+        top: -100%;
+        right: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 60px 0;
+        text-align: center;
+        background-color: rgb(220, 204, 236);
+        box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, .2);
+        transition-duration: .35s;
+    }
+    .menu__box li{
+        display: block;
+    }
+}

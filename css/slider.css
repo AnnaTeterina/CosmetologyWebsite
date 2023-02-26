@@ -1,0 +1,89 @@
+/* Стили всего блока "Мои работы" */
+.works {
+    margin-bottom: 20px;
+}
+
+/* Скрытие фотографий за пределами блока сладйера*/
+.slick-list {
+  overflow: hidden;
+}
+
+/* Выравнивание содержимого */
+.slick-track {
+    display: flex; 
+}
+
+/* Стили блока слайдера */
+.slider {
+    position: relative;
+    margin: 0 auto;
+    padding: 0px 90px;
+    height: 400px;
+    width: 100%;  
+}
+
+/* Стили стрелок слайдера */
+.slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin: -20px 0px 0px 0px;
+    z-index: 10;
+    font-size: 0;
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+}
+
+/* Задаем левую стрелку сдайдера */
+.slider .slick-arrow.slick-prev {
+    margin-left: 50px;
+    left: 0;
+    background: url("https://maxcdn.icons8.com/Share/icon/win8/Arrows/back1600.png") 0 0 / 100% no-repeat;   
+}
+
+/* Задаем правую стрелку сдайдера */
+.slider .slick-arrow.slick-next {
+    margin-right: 50px;
+    right: 0;
+    background: url("https://maxcdn.icons8.com/Share/icon/win8/Arrows/back1600.png") 0 0 / 100% no-repeat;
+    transform: rotate(180deg);
+}
+
+/* Стили блоков картинок */
+.slide {
+    padding: 0px 15px;
+    height: 400px;
+    position: relative;
+}
+
+/* Стили картинок */
+.slide img {
+    position: absolute;
+    margin: auto ;
+    padding: 15px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* Адаптация под мобильное устройство */
+@media (max-width: 767px) {
+    .works {
+        margin-bottom: 10px;
+    }
+    .slider {
+      padding: 0px 40px;
+      height: auto
+    }
+    .slider .slick-arrow.slick-prev {
+        margin-left: 17px;
+    }
+    .slider .slick-arrow.slick-next {
+        margin-right: 17px;
+    }
+    .slide {
+        height: 300px;
+    }
+}

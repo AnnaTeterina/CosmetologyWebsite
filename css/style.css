@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Стили для body */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(253, 249, 255);
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Стили для "шапки" */
+header {
+    height: 525px;
+    overflow: hidden;
+    font-size: 22px;
+}
+
+/* Стили второй "шапки" */
+.second {
+    height: 82px;
+    background-color: rgb(220, 204, 236);
+}
+
+/* Стили для лого */
+.logo {
+    width: 150px;
+    margin: 10px 10px 5px 150px;
+}
+
+/* Стили для слогана */
+.slogan {
+    color: #fff;
+    text-align: center;
+}
+
+/* Стили для первого текста слогана */
+.text__slogan_1 {
+    font-size: 60px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+
+/* Стили для второго текста слогана */
+.text__slogan_2 {
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+/* Стили для блока "Обо мне" */
+.about__me {
+    margin: 0px 65px;
+    display: table;
+}
+
+/* Стили для блока с фото в блоке "Обо мне" */
+.img-about {
+    height: 500px;
+    padding: 30px 30px 30px 40px;
+    display: table-cell;
+}
+
+/* Стили для блока с текстом в блоке "Обо мне" */
+.text-about {
+    color: #000;
+    font-size: 25px;
+    padding: 25px 25px 40px 0px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+/* Стили для "подвала" */
+footer {
+    background-color: rgb(220, 204, 236);
+    overflow: hidden;
+    font-size: 17px;
+    padding: 10px 0;
+}
+
+/* Адаптация под мобильное устройство */
+@media (max-width: 767px) {
+    header {
+        font-size: 20px;
+        height: auto;
+    }
+    .logo {
+        width: 150px;
+        margin: 10px 10px 0 15px;
+    }
+    .second {
+        font-size: 20px;
+        height: auto;
+    }
+    .text__slogan_1 {
+        font-size: 50px;
+        margin: 40px 20px 20px 20px;
+    } 
+    .text__slogan_2 {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+    .about__me {
+        margin: 0px 40px;
+    }
+    /* Стили для фото в блоке "Обо мне" */ 
+    .photo-ea {
+        width: 100%;
+        height: auto;
+    }
+    .img-about {
+        height: auto;
+        padding: 10px;
+        display: block;
+    }
+    .text-about {
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+    }
+}
